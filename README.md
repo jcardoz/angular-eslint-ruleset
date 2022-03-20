@@ -14,6 +14,25 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+## Lint
+
+Run `ng lint` to lint the files using the standard es lint rules + accessibility rules.
+Accessibility rules are set to throw an error (2). Change this to warning as per your requirement.
+* Steps performed to setup eslint
+    1. run the following command
+        ```
+        ng add @angular-eslint/schematics
+        ```
+    2.  Before v12, the Angular CLI shipped with a TSLint setup, so you should run the conversion schematic to automatically convert your new project from TSLint to ESLint:
+        ```
+        ng g @angular-eslint/schematics:convert-tslint-to-eslint --remove-tslint-if-no-more-tslint-targets --ignore-existing-tslint-config
+        ```
+        __Note__: If the above step fails with npm - run the following yarn command - 
+        ```
+        yarn add tslint-to-eslint-config@^2.3.0 --dev
+        ```
+        and then rerun step #2
+    3. Rules are present here: [angular-eslint rules]( https://github.com/angular-eslint/angular-eslint#functionality)
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
